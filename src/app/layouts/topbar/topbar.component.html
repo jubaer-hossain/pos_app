@@ -1,0 +1,23 @@
+<!-- Topbar Start -->
+<div class="navbar-custom">
+  <div class="container-fluid">
+    <ul class="list-unstyled topnav-menu float-right mb-0">
+
+      <li class="dropdown notification-list" ngbDropdown>
+        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" ngbDropdownToggle
+          id="profileDropdown" href="javascript: void(0);" role="button" aria-haspopup="false" aria-expanded="false">
+          <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+          <span class="pro-user-name ml-1">
+            {{username}}
+          </span>
+          <span (click)="logout()" style="margin-left: 25px" class="btn btn-danger btn-xs">Logout</span>
+        </a>
+      </li>
+    </ul>
+
+  
+
+  
+  </div>
+</div>
+<!-- end Topbar -->

@@ -1,0 +1,95 @@
+<div class="container" style="margin-top: 40px;margin-left: 85px;">
+  <div class="row">
+    <div class="col-md-12">
+      <span (click)="openModal(template)" class="btn btn-primary btn-xs">Add New Product</span>
+      <br /><br />
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Purchase Price</th>
+              <th>Selling Price</th>
+              <th>Stock</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productData">
+              <td>{{ product.product_name }}</td>
+              <td>{{ product.purchase_price }}</td>
+              <td>{{ product.selling_price }}</td>
+              <td>{{ product.stocks }}</td>
+              <td><span class="btn btn-primary btn-xs" (click)="openModal(template,product)">
+                  Edit</span></td>
+              <td><span class="btn btn-danger btn-xs" (click)="deleteProduct(product._id)">
+                  Delete</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 *ngIf="!isEditMode" class="modal-title pull-left">Add Product</h4>
+    <h4 *ngIf="isEditMode" class="modal-title pull-left">Edit Product</h4>
+    
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide();onCloseModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="needs-validation" name="addProductForm" [formGroup]="addProductForm" (ngSubmit)="onSubmit()"
+    novalidate>
+    <div class="form-group mb-3">
+      <label for="productName">Product Name</label>
+
+      <input type="text" formControlName="product_name" class="form-control"
+         id="name"  />
+
+      
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="purchasePrice">Purchase price</label>
+
+      <input type="number" formControlName="purchase_price" class="form-control"
+         id="purchaseprice"  />
+
+      
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="sellingPrice">Selling Price</label>
+
+      <input type="number" formControlName="selling_price" class="form-control"
+         id="purchaseprice"  />
+      
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="stocks">Stock</label>
+
+      <input type="number" formControlName="stocks" class="form-control"
+         id="stocks"  />
+      
+    </div>
+
+    <div class="form-group mb-0 text-center">
+      <button *ngIf="!isEditMode" class="btn btn-success btn-block" type="submit">Save</button>
+      <button *ngIf="isEditMode" class="btn btn-success btn-block" type="submit">Update </button>
+    </div>
+  </form>
+  </div>
+</ng-template>

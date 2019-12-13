@@ -1,0 +1,19 @@
+
+<!-- Navigation Bar-->
+<header id="topnav">
+    <app-topbar (settingsButtonClicked)="onSettingsButtonClicked()" (mobileMenuButtonClicked)="onToggleMobileMenu()">
+    </app-topbar>
+
+    <app-navbar [showMobileMenu]="showMobileMenu"></app-navbar>
+</header>
+<!-- End Navigation Bar-->
+
+<div class="wrapper">
+    <!-- content -->
+    <router-outlet></router-outlet>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>
+<!-- right sidebar -->
+<app-rightsidebar></app-rightsidebar>
