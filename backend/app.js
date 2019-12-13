@@ -41,7 +41,7 @@ app.use('/api/order', orderRoute);
 app.use('/api/customer', customerRoute);
 
 // PORT
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log('Connected to port ' + port)
