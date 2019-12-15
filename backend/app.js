@@ -17,6 +17,14 @@ mongoose.connect(dataBaseConfig.db, {
   }
 )
 
+/*mongoose.connect("mongodb+srv://jubaer:fzIAsHyTp6tSmBM5@cluster0-1qlqj.mongodb.net/pos_product?retryWrites=true")
+.then(() =>{
+  console.log('Connected to database');
+})
+.catch(() => {
+  console.log('Connection failed');
+});*/
+
 // Set up express js port
 const productRoute = require('./routes/product.route');
 const userRoute = require('./routes/user.route');
@@ -25,7 +33,7 @@ const customerRoute = require('./routes/customer.route');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use(bodyParser.urlencoded({ 
   extended: false
 }));
 app.use(cors());
@@ -41,7 +49,7 @@ app.use('/api/order', orderRoute);
 app.use('/api/customer', customerRoute);
 
 // PORT
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log('Connected to port ' + port)
